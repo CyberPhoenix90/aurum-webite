@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es2020" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
+        "module": "ESNext" /* Specify what module code is generated. */,
+        "esModuleInterop": true,
+        "jsx": "react",
+        "sourceMap": true,
+        "jsxFactory": "Aurum.factory",
+        "jsxFragmentFactory": "Aurum.fragment",
+        "moduleResolution": "node"
+         
+    },
+    "include": ["src/**/*"]
+}
