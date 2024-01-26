@@ -114,79 +114,118 @@ return function Todo() {
 	const todoSource = new ArrayDataSource();
 	const filteredView = todoSource.filter(() => true);
 	const editing = new DataSource();
+	const todoInput = new DataSource("");
 	let id = 0;
 	let draggedNode;
 
 	return (
+	  <div>
 		<div>
-			<input onKeyDown={(e) => {
-					if (e.keyCode === 13 && e.target.value) {
-						todoSource.push({id: (id++).toString(), done: new DataSource(false), text: new DataSource(e.target.value)});
-						e.target.value = '';
-					}
-				}}
-				placeholder="What needs to be done?">
-			</input>
-			<ul>
-				{filteredView.map((model) => {
-						let item;
-						return (
-							<li
-								onAttach={(i) => {
-									item = i;
-									item.model = model;
-								}}
-								draggable="true"
-								onDragStart={() => (draggedNode = item)}
-								onDragEnter={(e) => {
-									if (draggedNode.parentElement === item.parentElement) {
-										todoSource.swapItems(item.model, draggedNode.model);
-									}
-								}}
-								style={model.done.transform(dsMap((done) => (done ? 'color: red;text-decoration: line-through;display: flex;justify-content: space-between;' : 'display: flex;justify-content: space-between;')))}
-							>
-								<Switch state={editing}>
-									<SwitchCase
-										when={model.id}>
-										<input
-										onBlur={() => editing.update(undefined)}
-										onAttach={(input) => input.focus()}
-										initialValue={model.text.value}
-										onKeyDown={(e) => {
-											if (e.keyCode === 13) {
-												model.text.update(e.target.value);
-												editing.update(undefined);
-											} else if (e.keyCode === 27) {
-												editing.update(undefined);
-											}
-										}}
-										/>
-									</SwitchCase>
-									<DefaultSwitchCase>
-										<div onDblClick={(e) => editing.update(model.id)}>{model.text}</div>
-									</DefaultSwitchCase>
-								</Switch>
-								<span>
-									<button onClick={() => model.done.update(!model.done.value)}>
-										{model.done.transform(dsMap((done) => (done ? 'Mark as not done' : 'Mark as done')))}
-									</button>
-									<button onClick={() => {
-											if (editing.value === model.id) {
-												editing.update(undefined);
-											}
-											todoSource.remove(model);
-										}}>X</button>
-								</span>
-							</li>
-						);
-					})}
-			</ul>
-			<button onClick={() => filteredView.updateFilter(() => true)}>All</button>
-			<button onClick={() => filteredView.updateFilter((todo) => todo.done.value)}>Done only</button>
-			<button onClick={() => filteredView.updateFilter((todo) => !todo.done.value)}>Not done only</button>
+		  <input value={todoInput}
+			onKeyDown={(e) => {
+			  if (e.keyCode === 13 && e.target.value) {
+				addTodo();
+			  }
+			}}
+			placeholder="What needs to be done?"
+		  ></input>
+		  <button onClick={() => {
+			  addTodo()
+		  }}>Add</button>
 		</div>
+		<ul>
+		  {filteredView.map((model) => {
+			let item;
+			return (
+			  <li
+				onAttach={(i) => {
+				  item = i;
+				  item.model = model;
+				}}
+				draggable="true"
+				onDragStart={() => (draggedNode = item)}
+				onDragEnter={(e) => {
+				  if (draggedNode.parentElement === item.parentElement) {
+					todoSource.swapItems(item.model, draggedNode.model);
+				  }
+				}}
+				style={model.done.transform(
+				  dsMap((done) =>
+					done
+					  ? "color: red;text-decoration: line-through;display: flex;justify-content: space-between;"
+					  : "display: flex;justify-content: space-between;"
+				  )
+				)}
+			  >
+				<Switch state={editing}>
+				  <SwitchCase when={model.id}>
+					<input
+					  onBlur={() => editing.update(undefined)}
+					  onAttach={(input) => input.focus()}
+					  value={model.text.value}
+					  onKeyDown={(e) => {
+						if (e.keyCode === 13) {
+						  model.text.update(e.target.value);
+						  editing.update(undefined);
+						} else if (e.keyCode === 27) {
+						  editing.update(undefined);
+						}
+					  }}
+					/>
+				  </SwitchCase>
+				  <DefaultSwitchCase>
+					<div onDblClick={(e) => editing.update(model.id)}>
+					  {model.text}
+					</div>
+				  </DefaultSwitchCase>
+				</Switch>
+				<span>
+				  <button onClick={() => model.done.update(!model.done.value)}>
+					{model.done.transform(
+					  dsMap((done) =>
+						done ? "Mark as not done" : "Mark as done"
+					  )
+					)}
+				  </button>
+				  <button
+					onClick={() => {
+					  if (editing.value === model.id) {
+						editing.update(undefined);
+					  }
+					  todoSource.remove(model);
+					}}
+				  >
+					X
+				  </button>
+				</span>
+			  </li>
+			);
+		  })}
+		</ul>
+		<button onClick={() => filteredView.updateFilter(() => true)}>All</button>
+		<button
+		  onClick={() => filteredView.updateFilter((todo) => todo.done.value)}
+		>
+		  Done only
+		</button>
+		<button
+		  onClick={() => filteredView.updateFilter((todo) => !todo.done.value)}
+		>
+		  Not done only
+		</button>
+	  </div>
 	);
-}`)
+
+	  function addTodo() {
+		  todoSource.push({
+			  id: (id++).toString(),
+			  done: new DataSource(false),
+			  text: new DataSource(todoInput.value),
+		  });
+
+		  todoInput.update("");
+	  }
+  }`)
     }
 ];
 

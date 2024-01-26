@@ -21,6 +21,8 @@ In tsconfig.json put the jsxFactory option
 
 ### With vite
 
+In your vite.config.js put the esbuild options
+
 ```javascript
 import { defineConfig } from 'vite';
 
@@ -58,3 +60,9 @@ import { Aurum } from 'aurumjs';
 
 Aurum.attach(<div>Hello world</div>, document.body);
 ```
+
+#### Seed project
+
+You can copy this seed project to get started:
+
+https://github.com/CyberPhoenix90/aurum-seed-typescript
