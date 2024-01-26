@@ -50,6 +50,12 @@ const courses: Category[] = [
             },
             {
                 prefix: '3. ',
+                href: 'vite',
+                name: 'Vite',
+                id: 'vite'
+            },
+            {
+                prefix: '4. ',
                 href: 'babel',
                 name: 'Babel',
                 id: 'babel'
@@ -167,6 +173,9 @@ export function GettingStarted() {
                     </Route>
                     <Route href="/getting_started/typescript">
                         <MarkdownPage title="Using Aurum with typescript" url="/documentation/typescript.md"></MarkdownPage>
+                    </Route>
+                    <Route href="/getting_started/vite">
+                        <MarkdownPage title="Using Aurum with vite" url="/documentation/vite.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/babel">
                         <MarkdownPage title="Using Aurum with babel" url="/documentation/babel.md"></MarkdownPage>

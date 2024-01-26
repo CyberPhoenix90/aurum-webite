@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Not meant to be used as part of your own projects. Feel free to check how everything was implemented in aurum or to make pull requests with improvements to the documentation.",
     "scripts": {
-        "build": "vite build",
+        "build": "vite build --outDir docs",
         "serve": "vite"
     },
     "keywords": [],
