@@ -4,12 +4,10 @@ Example
 
 ```
 function Documentation() {
-	return fetch('https://myserver.com/documentation').then(res => res.text());
+	return fetch('/documentation').then(res => res.text());
 }
 
-<Aurum>
-	<Documentation></Documentation>
-</Aurum>
+Aurum.attach(<Documentation></Documentation>, document.body);
 
 ```
 
@@ -20,13 +18,14 @@ The support of async components makes fetching data as part of your component tr
 
 ```
 async function UserProfile(props) {
-	const data = await fetch('https://myserver.com/user/' + props.userId).then(res => res.json());
+	const data = await fetch('/user/get' + props.userId).then(res => res.json());
 	return <div>{data.name}</div>;
 }
 
-<Aurum>
+Aurum.attach(
 	<Suspense fallback={<LoadingSpinner></LoadingSpinner>}>
 		<UserProfile userId="123"></UserProfile>
-	</Suspense>
-</Aurum>
+	</Suspense>,
+	document.body
+);
 ```
