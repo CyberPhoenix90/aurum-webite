@@ -1,1 +1,1 @@
-Aurum does not officially support class based components. There are no advantages in using class based components especially in Aurum where render is only called once per instance. So please use [functional components](#/getting_started/functional)
+Aurum does not support class based components. Functional components in aurum are more intuitive because they are only rendered once per instance. So please use [functional components](#/getting_started/functional)

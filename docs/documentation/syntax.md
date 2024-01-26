@@ -6,7 +6,7 @@ Aurum is powered by the JSX syntax, almost all JSX knowledge from react, preact 
 
 There are 2 major differences between React's syntax and Aurums
 
-##### 1. Aurums jsx calls class 'class' and uses strings for native attribute values (like in the HTML spec):
+##### 1. Aurums jsx calls class 'class' and supports strings for native attribute values (like in the HTML spec):
 
 Aurum:
 
@@ -16,7 +16,9 @@ Equivalent in React
 
 > \<div className="hello" style={{backgroundColor:red, width:'100%'}}></div>
 
-#### 2. Aurum can bind promises and data sources directly to the HTML in JSX
+However react style style objects are also supported for convenience. This means that valid HTML is also valid JSX for Aurum
+
+#### 2. Aurum can bind promises, data sources and array data sources directly to the HTML in JSX
 
 Aurum:
 
