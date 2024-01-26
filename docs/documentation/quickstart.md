@@ -39,3 +39,11 @@ In tsconfig.json put the jsxFactory option
         "jsxFragmentFactory": "Aurum.Fragment"
     }
 ```
+
+### To render with aurum you can attach it to a DOM element like this:
+
+```typescript
+import { Aurum } from 'aurumjs';
+
+Aurum.attach(<div>Hello world</div>, document.body);
+```
