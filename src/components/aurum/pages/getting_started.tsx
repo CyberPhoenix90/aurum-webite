@@ -96,6 +96,12 @@ const courses: Category[] = [
             },
             {
                 prefix: '3. ',
+                href: 'async',
+                name: 'Async components',
+                id: 'async'
+            },
+            {
+                prefix: '4. ',
                 href: 'transclude',
                 name: 'Transclusion',
                 id: 'transclude'
@@ -122,6 +128,12 @@ const courses: Category[] = [
                 href: 'suspense',
                 name: 'Suspense component',
                 id: 'suspense'
+            },
+            {
+                prefix: '4. ',
+                href: 'error_boundary',
+                name: 'ErrorBoundary component',
+                id: 'errorboundary'
             }
         ]
     }
@@ -139,52 +151,58 @@ export function GettingStarted() {
             <div class="documentation-content">
                 <AurumRouter>
                     <Route href="/getting_started/coreideas">
-                        <MarkdownPage title="Core ideas" url="/aurum-webite/documentation/core_ideas.md"></MarkdownPage>
+                        <MarkdownPage title="Core ideas" url="/documentation/core_ideas.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/why">
-                        <MarkdownPage title="Why Aurum" url="/aurum-webite/documentation/why.md"></MarkdownPage>
+                        <MarkdownPage title="Why Aurum" url="/documentation/why.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/syntax">
-                        <MarkdownPage title="Syntax" url="/aurum-webite/documentation/syntax.md"></MarkdownPage>
+                        <MarkdownPage title="Syntax" url="/documentation/syntax.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/classes">
-                        <MarkdownPage title="Class based components" url="/aurum-webite/documentation/classes.md"></MarkdownPage>
+                        <MarkdownPage title="Class based components" url="/documentation/classes.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/functional">
-                        <MarkdownPage title="Function based components" url="/aurum-webite/documentation/functional.md"></MarkdownPage>
+                        <MarkdownPage title="Function based components" url="/documentation/functional.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/typescript">
-                        <MarkdownPage title="Using Aurum with typescript" url="/aurum-webite/documentation/typescript.md"></MarkdownPage>
+                        <MarkdownPage title="Using Aurum with typescript" url="/documentation/typescript.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/babel">
-                        <MarkdownPage title="Using Aurum with babel" url="/aurum-webite/documentation/babel.md"></MarkdownPage>
+                        <MarkdownPage title="Using Aurum with babel" url="/documentation/babel.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/switches">
-                        <MarkdownPage title="Builtin components: Switch" url="/aurum-webite/documentation/switches.md"></MarkdownPage>
+                        <MarkdownPage title="Builtin components: Switch" url="/documentation/switches.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/router">
-                        <MarkdownPage title="Builtin components: Router" url="/aurum-webite/documentation/router.md"></MarkdownPage>
+                        <MarkdownPage title="Builtin components: Router" url="/documentation/router.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/suspense">
-                        <MarkdownPage title="Builtin components: Suspense" url="/aurum-webite/documentation/suspense.md"></MarkdownPage>
+                        <MarkdownPage title="Builtin components: Suspense" url="/documentation/suspense.md"></MarkdownPage>
+                    </Route>
+                    <Route href="/getting_started/error_boundary">
+                        <MarkdownPage title="Builtin components: ErrorBoundary" url="/documentation/error_boundary.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/examples">
                         <ExamplePage></ExamplePage>
                     </Route>
+                    <Route href="/getting_started/async">
+                        <MarkdownPage title="Async components" url="/documentation/async.md"></MarkdownPage>
+                    </Route>
                     <Route href="/getting_started/transclude">
-                        <MarkdownPage title="Transclusion" url="/aurum-webite/documentation/transclusion.md"></MarkdownPage>
+                        <MarkdownPage title="Transclusion" url="/documentation/transclusion.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/datasource">
-                        <MarkdownPage title="DataSource" url="/aurum-webite/documentation/datasource.md"></MarkdownPage>
+                        <MarkdownPage title="DataSource" url="/documentation/datasource.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/arraydatasource">
-                        <MarkdownPage title="ArrayDataSource" url="/aurum-webite/documentation/arraydatasource.md"></MarkdownPage>
+                        <MarkdownPage title="ArrayDataSource" url="/documentation/arraydatasource.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/objectdatasource">
-                        <MarkdownPage title="ObjectDataSource" url="/aurum-webite/documentation/objectdatasource.md"></MarkdownPage>
+                        <MarkdownPage title="ObjectDataSource" url="/documentation/objectdatasource.md"></MarkdownPage>
                     </Route>
                     <DefaultRoute>
-                        <MarkdownPage title="Quickstart" url="/aurum-webite/documentation/quickstart.md"></MarkdownPage>
+                        <MarkdownPage title="Quickstart" url="/documentation/quickstart.md"></MarkdownPage>
                     </DefaultRoute>
                 </AurumRouter>
             </div>

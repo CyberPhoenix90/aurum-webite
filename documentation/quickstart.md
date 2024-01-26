@@ -6,7 +6,7 @@ Install:
 
 > $ npm install aurumjs
 
-To use Aurum you need to compile JSX or TSX using babel or the typescript compiler.
+To use Aurum you need to compile JSX or TSX using a transpiler such as typescript, vite, esbuild or any of the other many options.
 
 ### With Babel
 
@@ -21,19 +21,21 @@ Example .babelrc
     [
       "@babel/transform-react-jsx",
       {
-        "pragma": "Aurum.factory"
+        "pragma": "Aurum.factory",
+        "pragmaFrag": "Aurum.Fragment"
       }
     ]
   ]
 }
 ```
 
-### With typescript
+### With typescript or a typescript compatible transpiler
 
 In tsconfig.json put the jsxFactory option
 
 ```
     "compilerOptions": {
         "jsxFactory": "Aurum.factory"
+        "jsxFragmentFactory": "Aurum.Fragment"
     }
 ```

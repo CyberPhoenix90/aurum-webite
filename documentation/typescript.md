@@ -2,7 +2,8 @@ To use aurum with typescript all you have to do is go to your tsconfig and set t
 
 ```
     "compilerOptions": {
-        "jsxFactory": "Aurum.factory"
+        "jsxFactory": "Aurum.factory",
+        "jsxFragmentFactory": "Aurum.Fragment"
     }
 ```
 
