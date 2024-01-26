@@ -42,7 +42,3 @@ data2.update(<HelloWorld></HelloWorld>)
 ```
 
 See [Examples](#/getting_started/examples) for more information
-
-No equivalent in React:
-
-:(
