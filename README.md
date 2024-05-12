@@ -11,10 +11,6 @@ First install dependencies
 
 > \$ npm install
 
-Then build
+Then serve
 
-> \$ npm run build
-
-Then host
-
-> \$ npm run host
+> \$ npm run serve
