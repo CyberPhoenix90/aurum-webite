@@ -2,10 +2,10 @@ import { DataSource } from 'aurumjs';
 import { ExampleModel } from '../aurum/examples';
 
 export const acExampleData: ExampleModel[] = [
-	{
-		title: 'Hello world',
-		description: `Basic Hello world example`,
-		code: new DataSource(`import {AurumCanvas, AurumText} from 'aurum-canvas'
+    {
+        title: 'Hello world',
+        description: `Basic Hello world example`,
+        code: new DataSource(`import {AurumCanvas, AurumText} from 'aurum-canvas'
 
 return function() {
 	return <div>Hello from aurum.js
@@ -14,11 +14,11 @@ return function() {
 		</AurumCanvas>
 	</div>
 }`)
-	},
-	{
-		title: 'Basic animations',
-		description: `Use datasources for animations`,
-		code: new DataSource(`import {AurumCanvas, AurumText} from 'aurum-canvas'
+    },
+    {
+        title: 'Basic animations',
+        description: `Use datasources for animations`,
+        code: new DataSource(`import {AurumCanvas, AurumText} from 'aurum-canvas'
 import {tweenEmitter, DataSource, dsMap} from 'aurumjs'
 
 return function() {
@@ -41,11 +41,11 @@ function goDown(x) {
 function goUp(x) {
 	tweenEmitter(x, 3000, 200, 20, i => Math.sin(i*Math.PI/2)).then(() => goDown(x))
 }`)
-	},
-	{
-		title: 'Interaction',
-		description: `Hover on shapes, click and drag to move `,
-		code: new DataSource(`import {AurumCanvas, AurumText, AurumRectangle, AurumRegularPolygon, AurumPath, AurumElipse} from 'aurum-canvas'
+    },
+    {
+        title: 'Interaction',
+        description: `Hover on shapes, click and drag to move `,
+        code: new DataSource(`import {AurumCanvas, AurumText, AurumRectangle, AurumRegularPolygon, AurumPath, AurumElipse} from 'aurum-canvas'
 import {DataSource} from 'aurumjs'
 
 return function() {
@@ -53,7 +53,7 @@ return function() {
 	const hover=new DataSource('Nothing');
 
 	return <div>
-	<button onClick={() =>translation.update({x:0,y:0})}>Reset Viewport</button>
+	<button onClick={() =>translation.update({x:0,y:0})}>Reset Viewport</button><br/>
 			Hovering on: {hover}
 			<AurumCanvas
 			translate={translation}
@@ -72,5 +72,5 @@ return function() {
 	</div>
 }
 `)
-	}
+    }
 ];

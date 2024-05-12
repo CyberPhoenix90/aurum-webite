@@ -131,12 +131,18 @@ const courses: Category[] = [
             },
             {
                 prefix: '3. ',
+                href: 'lazy',
+                name: 'Lazy component',
+                id: 'lazy'
+            },
+            {
+                prefix: '4. ',
                 href: 'suspense',
                 name: 'Suspense component',
                 id: 'suspense'
             },
             {
-                prefix: '4. ',
+                prefix: '5. ',
                 href: 'error_boundary',
                 name: 'ErrorBoundary component',
                 id: 'errorboundary'
@@ -155,7 +161,7 @@ export function GettingStarted() {
         <div class="documentation-page">
             <ContentList selectedNode={selectedNode} baseUrl="#/getting_started/" content={courses}></ContentList>
             <div class="documentation-content">
-                <AurumRouter>
+                <AurumRouter hashRouting>
                     <Route href="/getting_started/coreideas">
                         <MarkdownPage title="Core ideas" url="documentation/core_ideas.md"></MarkdownPage>
                     </Route>
@@ -185,6 +191,9 @@ export function GettingStarted() {
                     </Route>
                     <Route href="/getting_started/router">
                         <MarkdownPage title="Builtin components: Router" url="documentation/router.md"></MarkdownPage>
+                    </Route>
+                    <Route href="/getting_started/lazy">
+                        <MarkdownPage title="Builtin components: Lazy" url="documentation/lazy.md"></MarkdownPage>
                     </Route>
                     <Route href="/getting_started/suspense">
                         <MarkdownPage title="Builtin components: Suspense" url="documentation/suspense.md"></MarkdownPage>

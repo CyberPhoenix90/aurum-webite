@@ -2,12 +2,19 @@ Array data sources are wrappers for your changable arrays that you want to rende
 Array data sources are useful whenever you want to render a list of items based on data that can change.
 
 Example:
-```
-const items = new ArrayDataSource(['item one', 'item two'])
 
-Aurum.attach(<div>{items.map(i => <p>{i}</p>)}
-<button onClick={() => items.push('More')}>Add more</button>
-</div>, document.body)
+```tsx
+const items = new ArrayDataSource(['item one', 'item two']);
+
+Aurum.attach(
+    <div>
+        {items.map((i) => (
+            <p>{i}</p>
+        ))}
+        <button onClick={() => items.push('More')}>Add more</button>
+    </div>,
+    document.body
+);
 ```
 
 This would render 2 paragraphs with item one and item two and a button that if clicked will append a new paragraph each time that says "More"
@@ -17,7 +24,8 @@ Array data sources have a lot of regular array methods to change the data and al
 Array data sources have another major feautre: Array views. Those are modified views of the original data without changing the data in question.
 
 Example:
-```
+
+```tsx
 	const inputSource = new DataSource(props.initialFilter ?? '');
 	const filteredItems = new ArrayDataSource(['lorem','ipsum','dolor','sit','amet]).filter(() => true);
 

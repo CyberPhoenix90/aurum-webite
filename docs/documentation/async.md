@@ -2,13 +2,12 @@ Aurum supports async components. They are just regular functional components tha
 
 Example
 
-```
+```tsx
 function Documentation() {
-	return fetch('/documentation').then(res => res.text());
+    return fetch('/documentation').then((res) => res.text());
 }
 
 Aurum.attach(<Documentation></Documentation>, document.body);
-
 ```
 
 This will render the documentation once it is fetched from the server. If the promise is rejected nothing is rendered. If you want to render something while the promise is pending you can use [suspense](#/getting_started/suspense)
@@ -16,16 +15,16 @@ If you wish to render something in case the promise is rejected you can use [err
 
 The support of async components makes fetching data as part of your component trivial:
 
-```
+```tsx
 async function UserProfile(props) {
-	const data = await fetch('/user/get' + props.userId).then(res => res.json());
-	return <div>{data.name}</div>;
+    const data = await fetch('/user/get' + props.userId).then((res) => res.json());
+    return <div>{data.name}</div>;
 }
 
 Aurum.attach(
-	<Suspense fallback={<LoadingSpinner></LoadingSpinner>}>
-		<UserProfile userId="123"></UserProfile>
-	</Suspense>,
-	document.body
+    <Suspense fallback={<LoadingSpinner></LoadingSpinner>}>
+        <UserProfile userId="123"></UserProfile>
+    </Suspense>,
+    document.body
 );
 ```

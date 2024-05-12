@@ -6,12 +6,12 @@ AurumRouter comes with 3 parts:
 
 \<DefaultRoute></DefaultRoute>
 
-You can simply import those from aurum and their purpose is to make single page applications where you render a different page based on your URL. AurumRouter works with the hash part of the URL. This may not be what you are looking for. There are 2 different ways to do URLs in single page applications: After the hash or with more natural looking urls without hash. AurumRouter only works for hash based routes. I will not go into detail here about the differences and advantages and disadvantages of both.
+You can simply import those from aurum and their purpose is to make single page applications where you render a different page based on your URL. AurumRouter works either with the url pathname or with the hash part of the URL (configurable through props).
 
 Simple usage example from the source code of this website:
 
-```
-<AurumRouter>
+```tsx
+<AurumRouter hashRouting>
 	<Route href="/documentation">
 		<DocumentationPage></DocumentationPage>
 	</Route>
@@ -37,3 +37,22 @@ The router will also match a page if the url does not end there.
 Meaning #/getting_started/router will render the page \<Route href="/getting_started"></Route>
 
 This makes it possible to use the router in a nested way to render sub pages within pages as is done in this very documentation where the sidebar is part of /getting_started but the page you are reading is part of /getting_started/router
+
+### Navigation Events
+
+You can set a callback function to be called when the router navigates to or from a page.
+
+```tsx
+<AurumRouter hashRouting>
+	<Route href="/documentation">
+		<DocumentationPage></DocumentationPage>
+	</Route>
+	<Route href="/getting_started">
+		<GettingStarted></GettingStarted>>
+	</Route>
+	<DefaultRoute onNavigateTo={() => {
+		location.href = '#/getting_started';
+	}}>
+	</DefaultRoute>
+</AurumRouter>
+```

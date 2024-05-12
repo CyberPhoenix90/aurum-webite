@@ -16,7 +16,7 @@ r.config({ paths: { vs: 'node_modules/monaco-editor/min/vs' } });
 
 Aurum.attach(
     <div onAttach={() => setTimeout(() => M.AutoInit())}>
-        <AurumRouter>
+        <AurumRouter hashRouting>
             <Route href="/aurum_canvas">
                 <ACNavbar></ACNavbar>
             </Route>
@@ -24,9 +24,9 @@ Aurum.attach(
                 <Navbar></Navbar>
             </DefaultRoute>
         </AurumRouter>
-        <AurumRouter>
+        <AurumRouter hashRouting>
             <Route href="/aurum_canvas">
-                <AurumRouter>
+                <AurumRouter hashRouting>
                     <Route href="/aurum_canvas/getting_started"></Route>
                     <DefaultRoute>
                         <ACMainTitle></ACMainTitle>

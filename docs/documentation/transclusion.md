@@ -2,9 +2,9 @@ Tranclusion is where you take child elements given to your functional component 
 
 #### Basics of transclusion
 
-```
+```tsx
 function MyComponent(props, children) {
-    return <div>{children}</div>
+    return <div>{children}</div>;
 }
 ```
 
@@ -12,12 +12,18 @@ This takes the children given to MyComponent and renders them inside a div. This
 
 #### Simple multi-transclusion
 
-```
+```tsx
 function Listify(props, children) {
     // If no children are received, default to an empty array
     children = children ?? [];
 
-    return <ul>{children.map(c => <li>{c}</li>)}</ul>
+    return (
+        <ul>
+            {children.map((c) => (
+                <li>{c}</li>
+            ))}
+        </ul>
+    );
 }
 ```
 
@@ -27,19 +33,18 @@ In this example listify will wrap all children individually in a \<li> within an
 
 Using transclusion you can give aurum support for new types of renderables
 
-```
+```tsx
 function FunctionRenderer(props, children) {
-    return children.map((child) => typeof child === 'function'? child.toString() : child);
+    return children.map((child) => (typeof child === 'function' ? child.toString() : child));
 }
 
 <div>
     <FunctionRenderer>
-    {function() {
-        console.log('hello world')
-    }}
+        {function () {
+            console.log('hello world');
+        }}
     </FunctionRenderer>
-</div>
-
+</div>;
 ```
 
 With this you can now render functions directly in JSX. Using data sources in your component you could make new types of dynamically updating objects that you can just render
@@ -63,29 +68,29 @@ Reasons you might want to render the elements on the spot could be for example y
 
 Example of using all the above features to implement suspense:
 
-```
+```tsx
 export function Suspense(props, children, api) {
-	const data = new DataSource(props?.fallback);
+    const data = new DataSource(props?.fallback);
 
-	const lc = createLifeCycle();
+    const lc = createLifeCycle();
 
-	api.onDetach(() => {
-		lc.onDetach();
-	});
+    api.onDetach(() => {
+        lc.onDetach();
+    });
 
-	Promise.all(api.prerender(children, lc)).then(
-		(res) => {
-			if (!api.cancellationToken.isCanceled) {
-				data.update(res);
-				lc.onAttach();
-			}
-		},
-		(e) => {
-			lc.onDetach();
-			return Promise.reject(e);
-		}
-	);
+    Promise.all(api.prerender(children, lc)).then(
+        (res) => {
+            if (!api.cancellationToken.isCanceled) {
+                data.update(res);
+                lc.onAttach();
+            }
+        },
+        (e) => {
+            lc.onDetach();
+            return Promise.reject(e);
+        }
+    );
 
-	return data;
+    return data;
 }
 ```

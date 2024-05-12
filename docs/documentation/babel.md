@@ -1,18 +1,16 @@
 To configure babel for aurum set your .babelrc file to look like the following:
 
-```
+```json
 {
-  "presets": [
-    "@babel/preset-env",
-  ],
-  "plugins": [
-    [
-      "@babel/transform-react-jsx",
-      {
-        "pragma": "Aurum.factory"
-      }
+    "presets": ["@babel/preset-env"],
+    "plugins": [
+        [
+            "@babel/transform-react-jsx",
+            {
+                "pragma": "Aurum.factory"
+            }
+        ]
     ]
-  ]
 }
 ```
 

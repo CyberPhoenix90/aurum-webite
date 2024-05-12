@@ -2,7 +2,7 @@ The error boundary component is a component that can be used to catch errors tha
 
 Example:
 
-```
+```tsx
 import { ErrorBoundary } from 'aurumjs';
 
 function MyComponent(props) {

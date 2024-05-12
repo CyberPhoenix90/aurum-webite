@@ -22,7 +22,7 @@ However react style style objects are also supported for convenience. This means
 
 Aurum:
 
-```
+```tsx
 //Promises that aren't resolved will appear in the dom as soon as (and if) they resolve successfully
 const promise = Promise.resolve('hello world');
 <div>{promise}</div>
